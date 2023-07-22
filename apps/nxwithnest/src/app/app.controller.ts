@@ -1,4 +1,4 @@
-import { Body, Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 
 import { AppService } from './app.service';
 
@@ -6,13 +6,13 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+@Get('/getdata')
   getData() {
     return this.appService.getData();
   }
 
-  @Get('/add-two-numbers')
-  getAdd(@Body() body) {
-    return this.appService.calculate_Add(body);
+  @Post('/add-two-numbers')
+  getAdd(@Body() body: CreateNumberDto):number {
+    return this.appService.calculate_Add(body.firstNumber, body.secondNumber);
   }
 }
