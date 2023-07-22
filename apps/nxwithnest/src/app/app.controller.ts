@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get } from '@nestjs/common';
 
 import { AppService } from './app.service';
 
@@ -9,5 +9,10 @@ export class AppController {
   @Get()
   getData() {
     return this.appService.getData();
+  }
+
+  @Get('/add-two-numbers')
+  getAdd(@Body() body) {
+    return this.appService.calculate_Add(body);
   }
 }
