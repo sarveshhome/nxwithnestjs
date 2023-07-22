@@ -1,18 +1,23 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
-
+import { Body, Controller, Get, Post, Header } from '@nestjs/common';
 import { AppService } from './app.service';
+import { CreateNumberDto } from './Models/createNumberDto';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('App')
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-@Get('/getdata')
+  @Get('/getdata')
   getData() {
     return this.appService.getData();
   }
 
   @Post('/add-two-numbers')
-  getAdd(@Body() body: CreateNumberDto):number {
+  @Header('Content-Type', 'application/json')
+  @ApiOperation({ summary: 'Get Add' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
+  getAdd(@Body() body: CreateNumberDto): number {
     return this.appService.calculate_Add(body.firstNumber, body.secondNumber);
   }
 }

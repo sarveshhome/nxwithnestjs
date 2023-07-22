@@ -66,3 +66,19 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 # swagger add command
 
 `npm install --save @nestjs/swagger`
+
+` @ApiProperty({
+    example: 'Maine Coon',
+    description: 'The breed of the Cat',
+  })`
+
+  
+
+# class validator
+
+`npm i class-validator`
+
+`npm i class-transformer`
+
+`npm i class-transformer-validator`
+
