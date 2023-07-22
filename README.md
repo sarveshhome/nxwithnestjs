@@ -61,3 +61,24 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Join the community](https://nx.dev/community)
 - [Subscribe to the Nx Youtube Channel](https://www.youtube.com/@nxdevtools)
 - [Follow us on Twitter](https://twitter.com/nxdevtools)
+
+
+# swagger add command
+
+`npm install --save @nestjs/swagger`
+
+` @ApiProperty({
+    example: 'Maine Coon',
+    description: 'The breed of the Cat',
+  })`
+
+  
+
+# class validator
+
+`npm i class-validator`
+
+`npm i class-transformer`
+
+`npm i class-transformer-validator`
+
