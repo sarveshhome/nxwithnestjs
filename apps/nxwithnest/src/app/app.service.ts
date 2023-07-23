@@ -6,6 +6,7 @@ export class AppService {
     return { message: 'Hello API' };
   }
   calculate_Add(firstNumber: number, secondNumber: number): number {
-    return firstNumber + secondNumber;
+    console.log(firstNumber, secondNumber);
+    return Number(firstNumber) + Number(secondNumber);
   }
 }

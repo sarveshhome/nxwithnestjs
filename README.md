@@ -76,9 +76,15 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 
 # class validator
 
+step 1: In main.ts
+
+app.useGlobalPipes(new ValidationPipe());
+
+
 `npm i class-validator`
 
 `npm i class-transformer`
 
 `npm i class-transformer-validator`
 
+`npm i --save class-validator class-transformer`

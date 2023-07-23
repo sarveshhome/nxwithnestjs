@@ -1,4 +1,4 @@
-import { IsInt,MinLength } from 'class-validator';
+import { IsInt,MinLength,IsNumberString  } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 export class CreateNumberDto {
     @ApiProperty({ example: 1, description: 'The first number' })
@@ -9,7 +9,7 @@ export class CreateNumberDto {
     firstNumber: number;
 
     @ApiProperty({ example: 2, description: 'The second number' })
-    @IsInt()
+    @IsNumberString() 
     @MinLength(1, {
         message: 'Number is too short',
       })
