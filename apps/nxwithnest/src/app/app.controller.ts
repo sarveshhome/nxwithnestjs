@@ -27,8 +27,9 @@ export class AppController {
   @Header('Content-Type', 'application/json')
   @ApiOperation({ summary: 'Get Add' })
   @ApiResponse({ status: HttpStatus.OK, description: 'result' })
-  @HttpCode(204)
   getAdd(@Body() body: CreateNumberDto): number {
-    return this.appService.calculate_Add(body.firstNumber, body.secondNumber);
+    const result= this.appService.calculate_Add(body.firstNumber, body.secondNumber);
+    console.log(result);
+    return result;
   }
 }
