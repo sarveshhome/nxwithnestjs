@@ -32,4 +32,13 @@ export class AppController {
     console.log(result);
     return result;
   }
+
+  @Post('/subtract-two-numbers')
+  @Header('Content-Type', 'application/json')
+  @ApiOperation({ summary: 'Get Subtract'})
+   @ApiResponse({ status: HttpStatus.OK, description: 'result' })
+  getSubtract(@Body() body: CreateNumberDto) {
+    const result= this.appService.calculate_Subtract(body.firstNumber, body.secondNumber);
+    return result;
+  }
 }
