@@ -1,8 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { Cron, CronExpression } from '@nestjs/schedule';
 
 @Injectable()
 export class AppService {
-  getData(): { message: string } {
-    return { message: 'Hello API' };
+ 
+  //create cronjob method
+  @Cron(CronExpression.EVERY_10_SECONDS)
+  cron(){
+    console.log("cronjob running");
+    return "cronjob running";
+  }
+  async job(){
+    console.log("async  job running");
+    return "async  job running";
   }
 }

@@ -97,5 +97,9 @@ app.useGlobalPipes(new ValidationPipe());
 
 `npm install --save-dev @types/cron`
 
+# create application with command
+
+`nx g @nx/nest:app cronjob-demo-app`
+
 
 
