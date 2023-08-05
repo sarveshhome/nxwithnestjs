@@ -88,3 +88,14 @@ app.useGlobalPipes(new ValidationPipe());
 `npm i class-transformer-validator`
 
 `npm i --save class-validator class-transformer`
+
+
+ ## NestJS Dynamic Cron Job
+
+
+`npm install --save @nestjs/schedule`
+
+`npm install --save-dev @types/cron`
+
+
+

@@ -1,0 +1,64 @@
+{
+  "name": "cronjob-demo-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/cronjob-demo-app/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/cronjob-demo-app",
+        "main": "apps/cronjob-demo-app/src/main.ts",
+        "tsConfig": "apps/cronjob-demo-app/tsconfig.app.json",
+        "assets": ["apps/cronjob-demo-app/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/cronjob-demo-app/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "cronjob-demo-app:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "cronjob-demo-app:build:development"
+        },
+        "production": {
+          "buildTarget": "cronjob-demo-app:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/cronjob-demo-app/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/cronjob-demo-app/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
